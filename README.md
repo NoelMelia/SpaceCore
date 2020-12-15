@@ -1,13 +1,13 @@
 # SpaceCore
 
 ## Main Menu
-![Image](Images/MainMenu.PNG)
+![Image](Images/MainMenu.png)
 
 ## Options
-![Image](Images/Options.PNG)
+![Image](Images/Options.png)
 
  ## Level 
-![Image](Images/Level1.PNG)
+![Image](Images/Level1.png)
 
 ## In Game Settings
-![Image](Images/InGameSettings.PNG) 
+![Image](Images/InGameSettings.png) 
