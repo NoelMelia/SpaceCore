@@ -7624,12 +7624,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2618926873060222578, guid: 4753ed810d37bff4d847b6908e7c282e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4753ed810d37bff4d847b6908e7c282e, type: 3}
---- !u!1 &1780565338 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 7315bd7efd619ac4e86bd4f5c3c5e44d,
-    type: 3}
-  m_PrefabInstance: {fileID: 998017328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1780565339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7315bd7efd619ac4e86bd4f5c3c5e44d,
@@ -10384,15 +10378,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7713473779498685272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1294c138664b0d41a7e688a803e8979, type: 3}
+  m_Script: {fileID: 11500000, guid: 7495510aef3e2894da0973f5cd9e33f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  multiplier: 1
   amountOfHealth: {fileID: 245231523}
   gameOverPanel: {fileID: 501780392}
-  multiplier: 1
-  pickupEffect: {fileID: 1780565338}
+  pickupEffect: {fileID: 1591116243}
   healthBar: {fileID: 1559259094}
 --- !u!1 &7713515399068606912
 GameObject:

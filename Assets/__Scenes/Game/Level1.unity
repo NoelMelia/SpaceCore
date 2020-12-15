@@ -4516,7 +4516,7 @@ PrefabInstance:
     - target: {fileID: 5721228798470171681, guid: c149ef91f30829041ac05a9ff8c6b904,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5724733566166404187, guid: c149ef91f30829041ac05a9ff8c6b904,
         type: 3}
@@ -8856,14 +8856,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7713473779498685272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1294c138664b0d41a7e688a803e8979, type: 3}
+  m_Script: {fileID: 11500000, guid: 7495510aef3e2894da0973f5cd9e33f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  multiplier: 1
   amountOfHealth: {fileID: 5884266850118270518}
   gameOverPanel: {fileID: 5884266849720255526}
-  multiplier: 1
   pickupEffect: {fileID: 1780565338}
   healthBar: {fileID: 5884266850301058117}
 --- !u!1 &7713515399068606912

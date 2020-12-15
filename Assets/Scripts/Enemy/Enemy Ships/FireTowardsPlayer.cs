@@ -10,19 +10,12 @@ public class FireTowardsPlayer : MonoBehaviour
     [SerializeField] float turnSpeed = 5;
     Rigidbody rb;
     Transform target;
-    
 
-    Vector2 moveDirection;
-
-    void Start()
-    {
+    void Start(){// Getter the components to implement
         rb = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        
-        
-        //Destroy(gameObject, 3f);
     }
-    private void Update() {
+    private void Update() {// Change the direction to the players direction
         fireRate -= Time.deltaTime;
 
         Vector3 direction = transform.position - target.position;
@@ -30,13 +23,12 @@ public class FireTowardsPlayer : MonoBehaviour
             transform.rotation, Quaternion.LookRotation(direction),turnSpeed * Time.deltaTime); 
 
         if(fireRate <= 0){
-            //Chanange the fireRate
+            //Change the fireRate
             fireRate = 0.4f;
             Shoot();
         }
     }
-
-    void Shoot(){
+    void Shoot(){// Creating a bullet to shoot
         Instantiate(projectile, shootPoint.position, shootPoint.rotation);
     }
 }

@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class SingletonLoadHighScore : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
-    {
-        scoreBoard.instance.highscore = GetComponent<Text>();
-        GetComponent<Text>().text = scoreBoard.instance.highScoreNum.ToString();
+    {// Creating an Singleton
+        // Saving the highscore data for next level
+        ScoreBoard.instance.highscore = GetComponent<Text>();
+        GetComponent<Text>().text = ScoreBoard.instance.highScoreNum.ToString();
 
-           }
-
-    
+    } 
 }

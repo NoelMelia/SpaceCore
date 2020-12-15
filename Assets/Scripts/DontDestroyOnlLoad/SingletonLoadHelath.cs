@@ -5,13 +5,10 @@ using UnityEngine.UI;
 
 public class SingletonLoadHelath : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
-    {
-         Health.instance.amountOfHealth = GetComponent<Text>();
-        GetComponent<Text>().text = Health.instance.currentHealth.ToString();
-
-            }
-
-    
+    {// Cretating an Singleton
+        // Saving the health data for next level 
+        HealthController.instance.amountOfHealth = GetComponent<Text>();
+        GetComponent<Text>().text = HealthController.instance.currentHealth.ToString();
+    }
 }

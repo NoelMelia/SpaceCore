@@ -4,17 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class scoreBoard : MonoBehaviour
+public class ScoreBoard : MonoBehaviour
 {
-    
+    [Header("Storing Scores")]
     public int score, highScoreNum;
+    [Header("Text")]
     public Text scoreText;
     public Text highscore;
-
-    // Start is called before the first frame update
-    public static scoreBoard instance;
+    [Header("Instance")]
+    public static ScoreBoard instance;
     void Awake() {
-        
         if (instance == null){
             instance = this;
         }
@@ -24,40 +23,39 @@ public class scoreBoard : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-
-    void Start(){
+    void Start(){// Setting up the Score for each game
         score = 0;
         ResetGameScore();
-        //score = PlayerPrefs.GetInt("Score",0);
+        // Displaying the Highscore and score at start
         scoreText.text = score.ToString();
         highScoreNum = PlayerPrefs.GetInt("HighScore");
         highscore.text = highScoreNum.ToString();
     }
 
     public static void SetHighScore(int score)
-    {
+    {// Setting High score in the Player Pref
         if (score > PlayerPrefs.GetInt("HighScore", score))
-        {
-            
+        {// Setting the value 
             PlayerPrefs.SetInt("HighScore", score);
+            
         }
     }
 
-    public void ScoreHit(int inputScore) {
+    public void ScoreHit(int inputScore) 
+    {//If hit is sucessful then add to score
         score += inputScore;
-        //scoreText.text = score.ToString();
-        
     }
-
-    // Update is called once per frame
     void Update()
-    {
+    {// Update the Highscore if beating
         SetHighScore(score);
         scoreText.text = score.ToString();
         PlayerPrefs.GetInt("Score",score).ToString();
-        
+        // Displaying the extra score and added to display score
+        if(score > highScoreNum){
+            highScoreNum = score;
+        }
     }
-    public void ResetGameScore(){
+    public void ResetGameScore(){// Resetting the game score
         PlayerPrefs.SetInt("Score",0);
         score = 0;
     }

@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class SingletonLoad : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
-    {
-        scoreBoard.instance.scoreText = GetComponent<Text>();
-        GetComponent<Text>().text = scoreBoard.instance.score.ToString();
+    {// Cretating an Singleton
+        // Saving the score data for next level 
+        ScoreBoard.instance.scoreText = GetComponent<Text>();
+        GetComponent<Text>().text = ScoreBoard.instance.score.ToString();
         
     }
-
-    
 }

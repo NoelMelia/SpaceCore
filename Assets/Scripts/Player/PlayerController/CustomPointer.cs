@@ -5,30 +5,38 @@ using System.Collections;
 
 [System.Serializable]
 public class CustomPointer : MonoBehaviour {
-	
-	public Texture pointerTexture; //The image for the pointer, generally a crosshair or dot.
-	public bool use_mouse_input = false; //Pointer will be controlled by the mouse.
-	//public bool use_gamepad_input = false; //Pointer will be controlled by a joystick
-	//public bool use_accelerometer_input = false;	//Pointer will be controlled by accelerometer
-	public bool pointer_returns_to_center = false; //Pointer will drift to the center of the screen (Use this for joysticks)
-	public bool instant_snapping = false; //If the pointer returns to the center, this will make it return to the center instantly when input is idle. Only works for joysticks
-	public float center_speed = 5f; //How fast the pointer returns to the center.
-	public bool center_lock = false; //Pointer graphic will be locked to the center. Also affects shooting raycast (always shoots to the center of the screen)
-	public float deadzone_radius = 0f; //Deadzone in the center of the screen where the pointer can move without affecting the ship's movement.
-	public float thumbstick_speed_modifier = 1f; //Speed multiplier for joysticks.
-	public float mouse_sensitivity_modifier = 15f; //Speed multiplier for the mouse.
-	public static Vector2 pointerPosition; //Position of the pointer in screen coordinates.
+	public Texture pointerTexture; 
+	//crosshair or dot.
+	public bool use_mouse_input = false; 
+	//Pointer will be controlled by the mouse.
+	public bool pointer_returns_to_center = false; 
+	//Pointer will drift to the center of the screen 
+	public bool instant_snapping = false; 
+	//If the pointer returns to the center, this will make it return to the center instantly when input is idle. Only works for joysticks
+	public float center_speed = 5f; 
+	//How fast the pointer returns to the center.
+	public bool center_lock = false; 
+	//Pointer graphic will be locked to the center. Also affects shooting raycast (always shoots to the center of the screen)
+	public float deadzone_radius = 0f; 
+	//Deadzone in the center of the screen where the pointer can move without affecting the ship's movement.
+	public float thumbstick_speed_modifier = 1f; 
+	//Speed multiplier for joysticks.
+	public float mouse_sensitivity_modifier = 15f; 
+	//Speed multiplier for the mouse.
+	public static Vector2 pointerPosition; 
+	//Position of the pointer in screen coordinates.
 	[HideInInspector]
-	public Rect deadzone_rect; //Rect representation of the deadzone.
+	public Rect deadzone_rect; 
+	//Rect representation of the deadzone.
 	
-	public static CustomPointer instance; //The instance of this class (Should only be one)
+	public static CustomPointer instance; 
+	//The instance of this class (Should only be one)
 	// Use this for initialization
 	
 	void Awake() {	
 		pointerPosition = new Vector2 (Screen.width / 2, Screen.height / 2); 
 		//Set pointer position to center of screen
 		instance = this;
-	
 	}
 	
 	void Start () {
@@ -38,7 +46,6 @@ public class CustomPointer : MonoBehaviour {
 		if (!use_mouse_input )
 			Debug.LogError("(FlightControls) No input method selected! See the Custom Pointer script on the Main Camera and select either mouse or gamepad.");
 	}
-
 	// Update is called once per frame
 	void Update () {
 		if (use_mouse_input) {
@@ -78,7 +85,5 @@ public class CustomPointer : MonoBehaviour {
 			
 		}
 	}
-	
-	
 	
 }

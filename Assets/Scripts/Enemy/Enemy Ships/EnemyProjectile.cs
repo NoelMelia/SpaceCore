@@ -6,8 +6,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     Rigidbody rigidbody;
     [SerializeField] float speed = 500f;
-
-    private void Awake() {
+    private void Awake() {// Firing at the players position
         rigidbody = GetComponent<Rigidbody>();
         Transform target = GameObject.FindGameObjectWithTag("Player").transform;
         Vector3 direction = target.position - transform.position;

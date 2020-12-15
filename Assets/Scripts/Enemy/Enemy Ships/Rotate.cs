@@ -3,16 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotate : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+{    void Update(){// Rotate the ship 360 degrees
         transform.Rotate(new Vector3(0f, 100f, 0f) * Time.deltaTime);
     }
 }

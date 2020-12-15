@@ -4,31 +4,25 @@ using UnityEngine;
 
 public class EnemyFire : MonoBehaviour
 {
-     [SerializeField]
-    GameObject Bullet;
-
+    [Header("Bullet")]
+     [SerializeField]GameObject Bullet;
+    [Header("Fire Speed and rate")]
     float fireRate;
     float nextFire;
 
-    void Start()
-    {
+    void Start(){// Setting the values
         fireRate = 2f;
         nextFire = Time.time;
     }
 
-    void Update()
-    {
+    void Update(){// Accessing method
         CheckIfTimeToFire();
     }
-
-    void CheckIfTimeToFire()
-    {
+    void CheckIfTimeToFire(){//Creating the bullet object and firing it 
         if(Time.time > nextFire)
         {
             Instantiate(Bullet, transform.position, Quaternion.identity);
             nextFire = Time.time + fireRate;
         }
-    }
- 
-    
+    } 
 }

@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class HealthBar: MonoBehaviour
 {
-    private void Awake() {
+    public Slider slider;
+    public static HealthBar instance;
+    
+    private void Awake() {// instance of file
         if (instance == null){
             instance = this;
         }
@@ -14,15 +17,11 @@ public class HealthBar: MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    public Slider slider;
-    public static HealthBar instance;
-    public void SetMaxHealth(int health)
-    {
+    public void SetMaxHealth(int health){// Setting the Max Health to value of health inserted
         slider.maxValue = health;
         slider.value = health;
     }
-    public void SetHealth(int health)
-    {
+    public void SetHealth(int health){// Setting the up health inserted
         slider.value = health;
     }
     

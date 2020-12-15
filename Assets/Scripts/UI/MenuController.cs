@@ -38,7 +38,7 @@ public class MenuController : MonoBehaviour
     [Header("Menu Sliders")]
     [SerializeField] private Text volumeText;
     [SerializeField] private Slider volumeSlider;
-    
+    ScoreBoard score;
     private void Start()
     {
         menuNumber = 1;
@@ -126,6 +126,7 @@ public class MenuController : MonoBehaviour
         }// Activate the New Game Button Menu
         if (buttonType == "NewGame")
         {
+            //score.ResetGameScore();
             menuDefaultCanvas.SetActive(false);
             newGameDialog.SetActive(true);
             menuNumber = 7;

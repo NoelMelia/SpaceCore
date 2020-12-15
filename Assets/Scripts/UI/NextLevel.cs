@@ -5,29 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
+    [Header("Level Controller")]
     public int level;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
     private void OnTriggerEnter(Collider other)
-    {
+    {// Trigger if player hits the finish line
         if (other.CompareTag("Player"))
-        {
-            
-            SceneManager.LoadScene(level);
-            
+        {// Go to scene number
+            //HealthController.instance.currentHealth = HealthController.instance.currentHealth.ToString();
+            SceneManager.LoadScene(level); 
         }
     }
-
-
 }

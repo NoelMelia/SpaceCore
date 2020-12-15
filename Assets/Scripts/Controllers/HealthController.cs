@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Health : MonoBehaviour
+public class HealthController : MonoBehaviour
 {
-    public int maxHealth = 5;
+    [Header("Health Integers")]
+    public int maxHealth = 10;
     public int currentHealth;
+    public int multiplier = 1;
+
+    [Header("Text Fields")]
     [SerializeField]public Text amountOfHealth;
     [SerializeField] private GameObject gameOverPanel;
 
-    //public bool activate;
-    public int multiplier = 1;
+    [Header("Explosion")]
     public GameObject pickupEffect;
-    public HealthBar healthBar;
-    private HealthPowerUp1 pickUp;
-    public static Health instance;
-    private scoreBoard sc;
-    // Start is called before the first frame update
 
+    [Header("Calling Other Files")]
+    public HealthBar healthBar;
+    private HealthPowerUp pickUp;
+
+    [Header("Creating an Instanse")]
+    public static HealthController instance;
     private void Awake() {
         if (instance == null){
             instance = this;
@@ -30,58 +34,46 @@ public class Health : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
     void Start()
-    {
-        pickUp = FindObjectOfType<HealthPowerUp1>();
+    {//Setting the Helath details
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         amountOfHealth.text =  maxHealth.ToString();
     }
 
-    // Update is called once per frame
     void Update()
-    {
-        amountOfHealth.text = currentHealth.ToString();
+    {// Update the health displayed on score
+        amountOfHealth.text = PlayerPrefs.GetInt("Health", currentHealth).ToString();
+        
         if(currentHealth <= 0)
-        {
+        {// If health is below 0 then the game is over and returned to home screen
             EndGame(); 
         }
-        //AddOn();
     }
-
     void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+    {// Take Damage if the enemy hits player
+        currentHealth -= damage;// Update the health and take away 
         healthBar.SetHealth(currentHealth);
         amountOfHealth.text = currentHealth.ToString();
     }
 
-    
-
     private void OnTriggerEnter(Collider other)
-    {
+    {// If enemy ships or debris collide with player then take damage
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Hit in Trigger");
-
+            //Debug.Log("Hit in Trigger");
             TakeDamage(1);
-            //Destroy(gameObject);
         }
-        
-        
     }
     private void EndGame()
-    {
+    {// End game and go back to Main menu
         Time.timeScale = 0f;
-        Debug.Log("Game End");
-        //gameOverPanel.SetActive(true);
-        //sc.ResetGameScore();
+        //Debug.Log("Game End");
         
-        scoreBoard.instance.ResetGameScore();
-        
+        ScoreBoard.instance.ResetGameScore();//Reset the score
         SceneManager.LoadScene(0);
     }
 
-    public void GainHealth()
+    /*public void GainHealth()
     {
         Instantiate(pickupEffect, transform.position, transform.rotation);
 
@@ -91,5 +83,5 @@ public class Health : MonoBehaviour
         amountOfHealth.text = currentHealth.ToString();
         Destroy(gameObject);
         Debug.Log("Hit Power Up");
-    }
+    }*/
 }

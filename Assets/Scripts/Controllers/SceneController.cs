@@ -21,7 +21,8 @@ public class SceneController : MonoBehaviour
     public void MainMenu(bool animate = false) => ChangeScene(SceneNames.MAIN_MENU, animate);
     public void Level1(bool animate = false) => ChangeScene(SceneNames.Level1, animate);
 
-    
+    public void Level2(bool animate = false) => ChangeScene(SceneNames.Level2, animate);
+    public void Level3(bool animate = false) => ChangeScene(SceneNames.Level3, animate);
 
     public void ChangeScene(string name, bool animate = false)
     {

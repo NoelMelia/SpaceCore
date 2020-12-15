@@ -7,19 +7,22 @@ using UnityEngine.EventSystems;
 
 public class InMenuController : MonoBehaviour
 {
+    [Header("Menu Option Panels")]
     public string mainMenuScene;
     public GameObject pauseMenu;
     public GameObject soundMenu;
-    
+    [Header("Booleans")]
     bool wasLocked = false;
     private static bool isPaused = false;
-
-    
+    [Header("Shortcut")]
     private KeyCode pauseKey = KeyCode.Escape;
+    [Header("Volume Details")]
     [SerializeField] private Text volumeText;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private float defaultVolume;
+    [Header("Calling Other File")]
     private CustomPointer custom;
+    [Header("Setting up Instance")]
     public static InMenuController instance;
     private void Awake() {// Setting up an instance of the Class
         if (instance == null){
@@ -80,7 +83,7 @@ public class InMenuController : MonoBehaviour
     public void Resume() => SetPauseStatus(false);
     public void RestartLevel()// Restart Level Button to Level 1
     {
-        scoreBoard.instance.ResetGameScore();
+        ScoreBoard.instance.ResetGameScore();
         SceneManager.LoadScene(1);
     }
     public void OptionMenu()// Get the Option Panel and Display
